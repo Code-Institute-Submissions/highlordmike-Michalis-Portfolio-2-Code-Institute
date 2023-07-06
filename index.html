@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Board</title>
+  <style>
+    /* CSS styles */
+  </style>
+</head>
+<body>
+  <div id="mainMenu">
+    <h1>Main Menu</h1>
+    <button id="startBtn">Start Game</button>
+  </div>
+
+  <div id="gameContainer" style="display: none;">
+    <div class="container">
+      <div class="game-info">
+        <!-- Game info elements -->
+      </div>
+      <div class="game-board"></div>
+    </div>
+
+    <div class="game-control">
+      <!-- Game control elements -->
+    </div>
+
+    <div id="gameOver" style="display: none;">
+      <h1>Game Over!</h1>
+      <p>Your score: <span id="finalScore"></span></p>
+      <button id="restartBtn">Restart</button>
+      <button id="mainMenuBtn">Main Menu</button>
+    </div>
+  </div>
+
+  <script>
+    // Game logic and JavaScript code
+
+    // Game board configuration
+    const rows = 8;
+    const columns = 8;
+    const tileSize = 45;
+
+    // Tower types and their properties
+    const towerTypes = [
+      { name: 'Tower A', range: 2, power: 5, cost: 50 },
+      { name: 'Tower B', range: 3, power: 10, cost: 100 },
+      // Add more tower types as needed
+    ];
+
+    // Enemy types and their properties
+    const enemyTypes = [
+      { name: 'Enemy A', health: 10, speed: 2 },
+      { name: 'Enemy B', health: 20, speed: 1 },
+      // Add more enemy types as needed
+    ];
+
+    // Game state variables
+    let score = 0;
+    let lives = 3;
+    let level = 1;
+    let gameBoard = [];
+    let enemySpawnInterval = 2000;
+    let towerCostMultiplier = 1;
+    let playerResources = 100;
+    let gameIsOver = false;
+
+    // Get DOM elements
+    const mainMenuScreen = document.getElementById('mainMenu');
+    const gameContainer = document.getElementById('gameContainer');
+    const gameOverScreen = document.getElementById('gameOver');
+    const finalScoreElement = document.getElementById('finalScore');
+
+    const startBtn = document.getElementById('startBtn');
+    const restartBtn = document.getElementById('restartBtn');
+    const mainMenuBtn = document.getElementById('mainMenuBtn');
+
+    // Add event listeners to buttons
+    startBtn.addEventListener('click', startGame);
+    restartBtn.addEventListener('click', restartGame);
+    mainMenuBtn.addEventListener('click', returnToMainMenu);
+
+    // Initialize game board
+    const gameBoardElement = document.querySelector('.game-board');
+
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < columns; col++) {
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.style.width = tileSize + 'px';
+        tile.style.height = tileSize + 'px';
+        tile.style.top = row * tileSize + 'px';
+        tile.style.left = col * tileSize + 'px';
+        gameBoardElement.appendChild(tile);
+      }
+    }
+
+    // Function to place a tower on the game board
+    function placeTower(row, col, towerType) {
+      const tower = document.createElement('div');
+      tower.className = 'tower';
+      tower.style.top = row * tileSize + 'px';
+      tower.style.left = col * tileSize + 'px';
+      gameBoardElement.appendChild(tower);
+
+      // Add tower data to the game board array
+      gameBoard[row][col] = {
+        type: towerType,
+        element: tower,
+      };
+    }
+
+    // Function to handle enemy spawn
+    function spawnEnemies() {
+      const enemyType = enemyTypes[level - 1];
+      const enemy = document.createElement('div');
+      enemy.className = 'enemy';
+      enemy.style.animationDuration = enemyType.speed + 's';
+      gameBoardElement.appendChild(enemy);
+
+      enemy.addEventListener('animationend', () => {
+        enemy.remove();
+        // Handle enemy reaching the end of the path
+        handleEnemyReachedEnd();
+      });
+    }
+
+    // Function to handle enemy reaching the end of the path
+    function handleEnemyReachedEnd() {
+      // Reduce lives
+      lives--;
+      document.getElementById('lives').textContent = 'Lives: ' + lives;
+
+      if (lives <= 0) {
+        // Game over condition
+        gameOver();
+      }
+    }
+
+    // Function to update UI elements
+    function updateUI() {
+      document.getElementById('score').textContent = 'Score: ' + score;
+      document.getElementById('lives').textContent = 'Lives: ' + lives;
+      document.getElementById('level').textContent = 'Level: ' + level;
+      document.getElementById('resources').textContent = 'Resources: ' + playerResources;
+    }
+
+    // Function to start the game
+    function startGame() {
+      // Hide main menu
+      mainMenuScreen.style.display = 'none';
+
+      // Show game container
+      gameContainer.style.display = 'block';
+
+      // Reset game state and variables
+      score = 0;
+      lives = 3;
+      level = 1;
+      gameBoard = [];
+      playerResources = 100;
+      gameIsOver = false;
+
+      // Clear the game board array
+      gameBoard = new Array(rows).fill(null).map(() => new Array(columns).fill(null));
+
+      // Update UI elements
+      updateUI();
+
+      // Initialize game board, spawn enemies, etc.
+
+      // Start game loop or timers
+      setInterval(spawnEnemies, enemySpawnInterval);
+    }
+
+    // Function to handle game over condition
+    function gameOver() {
+      // Set game over flag
+      gameIsOver = true;
+
+      // Hide game container
+      gameContainer.style.display = 'none';
+
+      // Show game over screen
+      gameOverScreen.style.display = 'block';
+
+      // Update final score
+      finalScoreElement.textContent = score;
+    }
+
+    // Function to restart the game
+    function restartGame() {
+      // Hide game over screen
+      gameOverScreen.style.display = 'none';
+
+      // Show game container
+      gameContainer.style.display = 'block';
+
+      // Reset game state and variables
+      score = 0;
+      lives = 3;
+      level = 1;
+      gameBoard = [];
+      playerResources = 100;
+      gameIsOver = false;
+
+      // Clear the game board array
+      gameBoard = new Array(rows).fill(null).map(() => new Array(columns).fill(null));
+
+      // Update UI elements
+      updateUI();
+
+      // Initialize game board, spawn enemies, etc.
+
+      // Start game loop or timers
+      setInterval(spawnEnemies, enemySpawnInterval);
+    }
+
+    // Function to return to the main menu
+    function returnToMainMenu() {
+      // Hide game over screen
+      gameOverScreen.style.display = 'none';
+
+      // Show main menu
+      mainMenuScreen.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
