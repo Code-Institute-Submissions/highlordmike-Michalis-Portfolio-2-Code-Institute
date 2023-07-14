@@ -1,5 +1,5 @@
 // JavaScript code
-
+document.getElementById('myCanvas')
 // Get DOM elements
 const mainMenuScreen = document.getElementById('mainMenu');
 const gameContainer = document.getElementById('gameContainer');
