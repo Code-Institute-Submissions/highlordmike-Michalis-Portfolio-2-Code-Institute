@@ -1,85 +1,145 @@
-// JavaScript code
-document.getElementById('myCanvas')
-// Get DOM elements
-const mainMenuScreen = document.getElementById('mainMenu');
-const gameContainer = document.getElementById('gameContainer');
-const gameOverScreen = document.getElementById('gameOver');
-const finalScoreElement = document.getElementById('finalScore');
-
-const startBtn = document.getElementById('startBtn');
-const restartBtn = document.getElementById('restartBtn');
-const mainMenuBtn = document.getElementById('mainMenuBtn');
-
-// Add event listeners to buttons
-startBtn.addEventListener('click', startGame);
-restartBtn.addEventListener('click', restartGame);
-mainMenuBtn.addEventListener('click', returnToMainMenu);
-
-// Game logic and variables
-let score = 0;
-let lives = 3;
-let gameIsOver = false;
-
-// Function to start the game
-function startGame() {
-  // Hide main menu
-  mainMenuScreen.style.display = 'none';
-
-  // Show game container
-  gameContainer.style.display = 'block';
-
-  // Reset game state and variables
-  score = 0;
-  lives = 3;
-  gameIsOver = false;
-
-  // Initialize game board, spawn enemies, etc.
-
-  // Update UI elements (score, lives, level, etc.)
-
-  // Start game loop or timers
-}
-
-// Function to handle game over condition
-function gameOver() {
-  // Set game over flag
-  gameIsOver = true;
-
-  // Hide game container
-  gameContainer.style.display = 'none';
-
-  // Show game over screen
-  gameOverScreen.style.display = 'block';
-
-  // Update final score
-  finalScoreElement.textContent = score;
-}
-
-// Function to restart the game
-function restartGame() {
-  // Hide game over screen
-  gameOverScreen.style.display = 'none';
-
-  // Show game container
-  gameContainer.style.display = 'block';
-
-  // Reset game state and variables
-  score = 0;
-  lives = 3;
-  gameIsOver = false;
-
-  // Initialize game board, spawn enemies, etc.
-
-  // Update UI elements (score, lives, level, etc.)
-
-  // Start game loop or timers
-}
-
-// Function to return to the main menu
-function returnToMainMenu() {
-  // Hide game over screen
-  gameOverScreen.style.display = 'none';
-
-  // Show main menu
-  mainMenuScreen.style.display = 'block';
-}
+(function(name,data){
+  if(typeof onTileMapLoaded === 'undefined') {
+   if(typeof TileMaps === 'undefined') TileMaps = {};
+   TileMaps[name] = data;
+  } else {
+   onTileMapLoaded(name,data);
+  }
+  if(typeof module === 'object' && module && module.exports) {
+   module.exports = data;
+  }})("pp2",
+ { "compressionlevel":-1,
+  "height":12,
+  "infinite":false,
+  "layers":[
+         {
+          "data":[16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+             16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16],
+          "height":12,
+          "id":3,
+          "name":"Copy of Copy of Tile Layer 1",
+          "opacity":1,
+          "type":"tilelayer",
+          "visible":true,
+          "width":20,
+          "x":0,
+          "y":0
+         }, 
+         {
+          "data":[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0,
+             15, 16, 16, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 16, 16, 16, 16, 16, 16,
+             15, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 16, 16, 4, 5, 5, 5,
+             15, 16, 16, 18, 19, 22, 33, 33, 33, 33, 21, 19, 19, 20, 16, 16, 18, 19, 19, 19,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 22, 33,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             5, 5, 5, 7, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             19, 19, 19, 19, 19, 20, 16, 16, 16, 16, 18, 19, 19, 8, 5, 5, 7, 19, 20, 16,
+             33, 33, 33, 33, 33, 34, 16, 16, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 20, 16,
+             15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 32, 33, 33, 33, 33, 33, 33, 33, 34, 16,
+             29, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+          "height":12,
+          "id":4,
+          "name":"Copy of Copy of Copy of Tile Layer 1",
+          "opacity":1,
+          "type":"tilelayer",
+          "visible":true,
+          "width":20,
+          "x":0,
+          "y":0
+         }, 
+         {
+          "data":[49, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0,
+             48, 16, 16, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 16, 16, 16, 16, 16, 16,
+             15, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 16, 16, 4, 5, 5, 5,
+             15, 16, 16, 18, 19, 22, 33, 33, 33, 33, 21, 19, 19, 20, 16, 16, 18, 19, 19, 19,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 22, 33,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             5, 5, 5, 7, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             19, 19, 19, 19, 19, 20, 16, 16, 16, 16, 18, 19, 19, 8, 5, 5, 7, 19, 20, 16,
+             33, 33, 33, 33, 33, 34, 16, 16, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 20, 16,
+             15, 16, 127, 16, 16, 16, 16, 16, 16, 16, 32, 33, 33, 33, 33, 33, 33, 33, 34, 16,
+             29, 30, 141, 142, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+          "height":12,
+          "id":6,
+          "name":"2",
+          "opacity":1,
+          "type":"tilelayer",
+          "visible":true,
+          "width":20,
+          "x":0,
+          "y":0
+         }, 
+         {
+          "data":[49, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 113, 114, 115,
+             57, 16, 16, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 16, 16, 16, 127, 128, 129,
+             71, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 16, 16, 4, 141, 142, 143,
+             15, 16, 16, 18, 19, 22, 33, 33, 33, 33, 21, 19, 19, 20, 16, 16, 18, 19, 19, 19,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 22, 33,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             5, 5, 5, 7, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             19, 19, 19, 19, 19, 20, 16, 16, 16, 16, 18, 19, 19, 8, 5, 5, 7, 19, 20, 16,
+             33, 33, 113, 114, 115, 34, 16, 16, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 20, 16,
+             119, 120, 121, 128, 129, 16, 16, 16, 16, 16, 32, 33, 33, 33, 33, 33, 33, 33, 34, 16,
+             133, 134, 135, 142, 143, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+          "height":12,
+          "id":8,
+          "name":"Copy of 2",
+          "opacity":1,
+          "type":"tilelayer",
+          "visible":true,
+          "width":20,
+          "x":0,
+          "y":0
+         }, 
+         {
+          "data":[49, 2, 2, 2, 2, 2, 2, 2, 2, 2, 47, 2, 2, 2, 2, 2, 0, 113, 114, 115,
+             57, 16, 16, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 16, 16, 16, 127, 128, 129,
+             71, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 16, 16, 4, 141, 142, 143,
+             15, 16, 16, 18, 19, 22, 33, 33, 33, 33, 21, 19, 19, 20, 16, 16, 18, 19, 19, 19,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 22, 47,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             15, 16, 16, 18, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             5, 5, 5, 7, 19, 20, 16, 16, 16, 16, 18, 19, 19, 20, 16, 16, 18, 19, 20, 16,
+             19, 19, 19, 19, 19, 20, 16, 16, 16, 16, 18, 19, 19, 8, 5, 5, 7, 19, 20, 16,
+             33, 33, 113, 114, 115, 34, 16, 16, 16, 16, 18, 19, 19, 19, 19, 19, 19, 19, 20, 16,
+             119, 47, 121, 128, 129, 16, 16, 16, 16, 16, 32, 33, 33, 33, 33, 33, 33, 33, 34, 16,
+             133, 134, 135, 142, 143, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+          "height":12,
+          "id":9,
+          "name":"Copy of Copy of 2",
+          "opacity":1,
+          "type":"tilelayer",
+          "visible":true,
+          "width":20,
+          "x":0,
+          "y":0
+         }],
+  "nextlayerid":11,
+  "nextobjectid":1,
+  "orientation":"orthogonal",
+  "renderorder":"right-down",
+  "tiledversion":"1.10.1",
+  "tileheight":64,
+  "tilesets":[
+         {
+          "firstgid":1,
+          "source":"..\/..\/..\/tileset.tsx"
+         }],
+  "tilewidth":64,
+  "type":"map",
+  "version":"1.10",
+  "width":20
+ });
