@@ -5,6 +5,6 @@ background-color: black;}
 <script>
     const =canvas document.querySelector('canvas');
     console.log('canvas');
-    console.log const name = value;
+    console.log c =canvas.getconst('2d')
     c.fillrect(0, 0,canvas.element.clientWidth, canvas.element.clientHeight)
 </script>
