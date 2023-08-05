@@ -26,9 +26,9 @@ Tower Defense Game is a simple browser-based game where players strategically pl
 6. If all lives are lost, the game is over.
 
 ### Where i got my art from
-https://free-game-assets.itch.io/free-stone-tower-defense-game-art?download
+- https://free-game-assets.itch.io/free-stone-tower-defense-game-art?download
 
 #### software used to make the map
-Tiled Map Editor
-Version 1.10.1
+- Tiled Map Editor
+   Version 1.10.1
 
