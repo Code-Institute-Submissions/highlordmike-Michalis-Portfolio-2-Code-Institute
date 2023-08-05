@@ -25,4 +25,3 @@ class Projectile extends Sprite {
       this.position.y += this.velocity.y
     }
   }
-  

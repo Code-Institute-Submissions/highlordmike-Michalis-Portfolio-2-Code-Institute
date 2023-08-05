@@ -57,4 +57,3 @@ class Building extends Sprite {
       )
     }
   }
-  

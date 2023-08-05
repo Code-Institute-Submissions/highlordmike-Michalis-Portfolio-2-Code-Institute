@@ -72,4 +72,3 @@ class Enemy extends Sprite {
       }
     }
   }
-  
