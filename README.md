@@ -4,7 +4,8 @@
 
 Tower Defense Game is a simple browser-based game where players strategically place towers to defend against waves of enemies. The goal is to survive as long as possible while earning points and advancing through different levels of difficulty.
 
-![](images/Screenshot 2023-08-05 021951)
+![Screenshot 2023-08-05 021951](https://github.com/highlordmike/Michalis-Portfolio-2-Code-Institute/assets/128619468/5971e23a-30f0-409b-af00-8e47317d874b)
+
 
 ## Features
 
