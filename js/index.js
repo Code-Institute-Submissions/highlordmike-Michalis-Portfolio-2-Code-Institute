@@ -160,8 +160,8 @@ const mouse = {
 }
 
 canvas.addEventListener('click', (event) => {
-  if (activeTile && !activeTile.isOccupied && coins - 50 >= 0) {
-    coins -= 50
+  if (activeTile && !activeTile.isOccupied && coins - 53 >= 0) {
+    coins -= 53
     document.querySelector('#coins').innerHTML = coins
     buildings.push(
       new Building({
