@@ -24,3 +24,11 @@ Tower Defense Game is a simple browser-based game where players strategically pl
 4. Defend against waves of enemies by strategically placing and upgrading towers.
 5. Monitor your score, remaining lives, and current level at the top of the screen.
 6. If all lives are lost, the game is over.
+
+### Where i got my art from
+- https://free-game-assets.itch.io/free-stone-tower-defense-game-art?download
+
+#### software used to make the map
+- Tiled Map Editor
+   Version 1.10.1
+
