@@ -45,7 +45,7 @@ function spawnEnemies(spawnCount) {
     const xOffset = i * 150
     enemies.push(
       new Enemy({
-        position: { x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        position: { x: waypoints[0].x - xOffset, y: waypoints[0].y } 
       })
     )
   }
